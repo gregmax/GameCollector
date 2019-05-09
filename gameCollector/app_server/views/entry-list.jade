@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1= pageHeader.title 
+        small &nbsp;#{pageHeader.tagline}
+  .row(ng-controller="entryListCtrl")
+    .col-xs-12.col-sm-3.sidebar
+      p Filter and sort your entries here by name, platform and publisher!
+      list-group
+        list-group-item
+          h4.list-group-item-heading Sort by:
+          p.list-group-item-text 
+            a(ng-click="sortBy('name')") Name
+            span.sortorder(ng-show="propertyName === 'name'", ng-class='{reverse: reverse}')
+          p.list-group-item-text 
+            a(ng-click="sortBy('platform')") Platform
+            span.sortorder(ng-show="propertyName === 'platform'", ng-class='{reverse: reverse}')
+          p.list-group-item-text 
+            a(ng-click="sortBy('publisher')") Publisher
+            span.sortorder(ng-show="propertyName === 'publisher'", ng-class='{reverse: reverse}')
+          h4.list-group-item-heading <br /> Text filter
+          input#filter(type="text", name="filter", ng-model="textFilter")
+          .error {{ message }}
+    .col-xs-12.col-sm-8
+      .row.list-group
+        .col-xs-12.list-group-item(ng-repeat="entry in entries | orderBy:propertyName:reverse | filter:textFilter")
+          h4
+            a(href="/entry") {{ entry.name }}
+          p.platform {{ entry.platform }}
+          p.publisher {{ entry.publisher }}
+          p(condition-status, condition="entry.condition")

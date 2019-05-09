@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1 Add entry
+  .row
+    .col-xs-12.col-md-6
+      form.form-horizontal(action="/entry", method="get", role="form")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="title") Game title*
+          .col-xs-12.col-sm-10
+            input#title.form-control(name="title")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="platform") Platform
+          .col-xs-12.col-sm-10
+            input#platform.form-control(name="platform")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="publisher") Publisher
+          .col-xs-12.col-sm-10
+            input#publisher.form-control(name="publisher")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="developer") Developer
+          .col-xs-12.col-sm-10
+            input#developer.form-control(name="developer")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="genre") Genre
+          .col-xs-12.col-sm-10
+            input#genre.form-control(name="genre")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="coverArt") Cover art
+          .col-xs-12.col-sm-10
+            input#coverArt.form-control-file(type='file')
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="condition") Condition
+          .col-sm-10
+            .checkbox
+              label
+                input(type='checkbox')
+                | Case &nbsp;
+              label
+                input(type='checkbox')
+                | Manual &nbsp;
+              label
+                input(type='checkbox')
+                | Game &nbsp;
+      small.text-muted *Denotes a required field
+        button.btn.btn-default.pull-right Add entry

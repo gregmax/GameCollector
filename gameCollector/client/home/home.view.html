@@ -1,0 +1,37 @@
+<navigation></navigation>
+
+<div class="container">
+<div class="row page-header">
+  <div class="col-lg-12">
+    <h1>{{ vm.pageHeader.title }}
+      <small>&nbsp;{{ vm.pageHeader.tagline }}</small></h1>
+  </div>
+</div>
+<div ng-controller="homeCtrl" class="row">
+  <div class="col-xs-12 col-sm-3 sidebar">
+    <p>Filter and sort your entries here by name, platform and publisher!</p>
+    <list-group>
+      <list-group-item>
+        <h4 class="list-group-item-heading">Sort by:</h4>
+        <p class="list-group-item-text"> <a ng-click="sortBy('name')">Name</a><span ng-show="propertyName === 'name'" ng-class="{reverse: reverse}" class="sortorder"></span></p>
+        <p class="list-group-item-text"> <a ng-click="sortBy('platform')">Platform</a><span ng-show="propertyName === 'platform'" ng-class="{reverse: reverse}" class="sortorder"></span></p>
+        <p class="list-group-item-text"> <a ng-click="sortBy('publisher')">Publisher</a><span ng-show="propertyName === 'publisher'" ng-class="{reverse: reverse}" class="sortorder"></span></p>
+        <h4 class="list-group-item-heading"><br /> Text filter</h4>
+        <input id="filter" type="text" name="filter" ng-model="textFilter"/>
+        <div class="error">{{ message }}</div>
+      </list-group-item>
+    </list-group>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <div class="row list-group">
+      <div ng-repeat="entry in entries | orderBy:propertyName:reverse | filter:textFilter" class="col-xs-12 list-group-item">
+        <h4><a href="/#/entry/{{ entry._id }}">{{ entry.name }}</a></h4>
+        <p class="platform">{{ entry.platform }}</p>
+        <p class="publisher">{{ entry.publisher }}</p>
+        <p condition-status="condition-status" condition="entry.condition"></p>
+      </div>
+    </div>
+  </div>
+  <footer-common></footer-common>
+</div>
+</div>

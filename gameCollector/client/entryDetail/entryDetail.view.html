@@ -1,0 +1,32 @@
+<navigation></navigation>
+
+<div data-ng-controller="entryDetailCtrl" class="container">
+<div id="banner" class="page-header">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>{{ entry.name }} - {{ entry.platform }}</h1>
+    </div>
+  </div>
+</div>
+<div class="row panel panel-default informationContainer">
+  <div class="panel-body">
+    <div class="col-xs-8 col-sm-4 cover-art"><img src="/images/burnout2gc.jpg" class="img-responsive"/></div>
+    <div class="col-xs-12 col-sm-4 information">
+      <p>Platform: {{ entry.platform }}</p>
+      <p>Publisher: {{ entry.publisher }}</p>
+      <p>Developer: {{ entry.developer }}</p>
+      <p>Genre: {{ information.name }}</p><a href="/#/entry/{{ entry._id }}/editEntry" class="btn btn-default pull-left">Edit</a><a href="/entry/editDetails/" class="btn btn-default">Delete</a>
+    </div>
+  </div>
+</div>
+<div class="row well well-sm collectionContainer">
+  <div class="panel-body collectionDetails">
+    <div class="col-xs-12 col-sm-4">
+      <h2>Collection details</h2>
+      <p>Condition: &nbsp;</p><p condition-status="condition-status" condition="entry.condition"></p>
+      <p>Date added: 07/07/2014</p><a href="/#/entry/{{ entry._id }}/editEntry" class="btn btn-default pull-left">Edit</a><a href="/entry/editDetails/" class="btn btn-default">Delete</a>
+    </div>
+  </div>
+</div>
+<footer-common></footer-common>
+</div>

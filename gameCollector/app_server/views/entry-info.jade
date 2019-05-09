@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  #banner.page-header
+    .row
+      .col-lg-12
+        h1 Burnout 2: Point of Impact - Nintendo GameCube
+  .row.panel.panel-default.informationContainer
+    .panel-body
+      .col-xs-8.col-sm-4.cover-art
+        img.img-responsive(src='/images/burnout2gc.jpg')
+      .col-xs-12.col-sm-4.information
+        p Platform: Nintendo GameCube
+        p Publisher: Acclaim
+        p Developer: Criterion
+        p Genre: Racing
+        a.btn.btn-default.pull-left(href='/entry/editDetails/') Edit
+        a.btn.btn-default(href='/entry/editDetails/') Delete
+  .row.well.well-sm.collectionContainer
+    .panel-body.collectionDetails
+      .col-xs-12.col-sm-4
+        h2 Collection details
+        p Condition: &nbsp;
+          span.label.label-warning.glyphicon.glyphicon-ok &ensp;Case
+          | &nbsp;
+          span.label.label-warning.glyphicon.glyphicon-ok &ensp;Manual
+          | &nbsp;
+          span.label.label-warning.glyphicon.glyphicon-remove &ensp;Game
+          | &nbsp;
+        p Date added: 07/07/2014
+        a.btn.btn-default.pull-left(href='/entry/editDetails/') Edit
+        a.btn.btn-default(href='/entry/editDetails/') Delete
